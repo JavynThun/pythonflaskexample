@@ -1,9 +1,8 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
-from flask_login import logout_user, login_required
 from werkzeug.urls import url_parse
 
 @app.route('/')
@@ -37,7 +36,6 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-        return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')

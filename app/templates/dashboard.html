@@ -5,6 +5,8 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
     <h1>{{ title }}</h1>
     <canvas id="chart" width="600" height="400"></canvas>
+    <canvas id="doughnut" width="600" height="400"></canvas>
+    <h1>end of pie chart</h1>
     <script>
       // bar chart data
       var barData = {
@@ -41,5 +43,22 @@
        scaleShowLabels: true
        }
      );
+    </script>
+    <script>
+      var pieData = [
+        {% for item, label, colors in set %}
+          {
+            value: {{item}},
+            label: "{{label}}",
+            color : "{{colors}}",
+          },
+        {% endfor %}
+      ];
+      // get bar chart canvas
+      var mychart = document.getElementById("doughnut").getContext("2d");
+      steps = 10
+      max = {{ max }}
+      // draw pie chart
+      new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(pieData);
     </script>
 {% endblock %}

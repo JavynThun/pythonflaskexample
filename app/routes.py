@@ -59,6 +59,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 @app.route('/dashboard')
+@login_required
 def dashboard():
     labels = [
         'JAN', 'FEB', 'MAR', 'APR',
@@ -76,4 +77,5 @@ def dashboard():
         "#F7464A", "#46BFBD", "#FDB45C", "#FEDCBA",
         "#ABCDEF", "#DDDDDD", "#ABCABC", "#4169E1",
         "#C71585", "#FF4500", "#FEDCBA", "#46BFBD"]
-    return render_template('dashboard.html', title='Dashboard', values=values, labels=labels, max=17000)
+
+    return render_template('dashboard.html', title='Dashboard', values=values, labels=labels, set=zip(values, labels, colors), max=17000)

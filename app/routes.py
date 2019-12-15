@@ -79,3 +79,20 @@ def dashboard():
         "#C71585", "#FF4500", "#FEDCBA", "#46BFBD"]
 
     return render_template('dashboard.html', title='Dashboard', values=values, labels=labels, set=zip(values, labels, colors), max=17000)
+
+@app.route('/newDashboard')
+@login_required
+def newDashboard():
+    labels = [
+        "Africa", "Asia", "Europe", "Latin America", "North America"
+    ]
+
+    colors = [
+        "#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"
+    ]
+
+    values = [
+        2478,5267,734,784,433
+    ]
+
+    return render_template('newDashboard.html', title='newDashboard', set=zip(values, labels, colors))

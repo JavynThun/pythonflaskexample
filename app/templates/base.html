@@ -26,13 +26,14 @@
                 <ul class="nav navbar-nav">
                     <li><a style="color:white" href="{{ url_for('index') }}">Home</a></li>
                     <li><a style="color:white" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a style="color:white" href="{{ url_for('newDashboard') }}">newDashboard</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}
                     <li><a style="color:white" href="{{ url_for('login') }}">Login</a></li>
                     {% else %}
                     
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    <li><a style="color:white" href="{{ url_for('logout') }}">Logout</a></li>
                     {% endif %}
                 </ul>
             </div>

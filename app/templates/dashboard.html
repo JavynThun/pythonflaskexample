@@ -6,7 +6,7 @@
     <h1>{{ title }}</h1>
     <canvas id="chart" width="600" height="400"></canvas>
     <canvas id="doughnut" width="600" height="400"></canvas>
-    <h1>end of pie chart</h1>
+
     <script>
       // bar chart data
       var barData = {
@@ -14,7 +14,7 @@
           {% for item in labels %}
            "{{ item }}",
           {% endfor %}
-	],
+	      ],
         datasets : [{
           fillColor: "rgba(151,187,205,0.2)",
           strokeColor: "rgba(151,187,205,1)",

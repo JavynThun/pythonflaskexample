@@ -95,4 +95,4 @@ def newDashboard():
         2478,5267,734,784,433
     ]
 
-    return render_template('newDashboard.html', title='newDashboard', set=zip(values, labels, colors))
+    return render_template('newDashboard.html', title='Overview', labels=labels, colors=colors, values=values)

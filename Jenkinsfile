@@ -6,5 +6,15 @@ pipeline {
                 sh 'python --version'
             }
         }
+        stage('sonarqube') {
+            environment {
+                scannerHome = tool 'sonarqube'
+            }
+            steps {
+                withSonarQubeEnv(installationName: 'sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner -X"
+                }
+            }
+        }
     }
 }
